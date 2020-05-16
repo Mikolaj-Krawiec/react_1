@@ -3,29 +3,56 @@ import PropTypes from 'prop-types';
 import styles from './List.scss';
 import Hero from '../Hero/Hero.js';
 import Column from '../Column/Column';
+import Creator from '../Creator/Creator';
+import ReactHtmlParser from 'react-html-parser';
+import {settings} from '../../data/dataStore';
 
 class List extends React.Component {
+    state = {
+        columns: this.props.columns || [],
+    }
+
     static propTypes = {
         title: PropTypes.node.isRequired,
-        heroImg: PropTypes.string.isRequired,
-        children: PropTypes.node,
+        image: PropTypes.string.isRequired,
+        description: PropTypes.node,
+        columns: PropTypes.array,
       }
 
     static defaultProps = {
-        children: <p>I can do all the things!!!</p>
+        description: settings.defaultListDescription,
+    }
+
+    addColumn(title){
+        this.setState(state => (
+          {
+            columns: [
+              ...state.columns,
+              {
+                key: state.columns.length ? state.columns[state.columns.length-1].key+1 : 0,
+                title,
+                icon: 'list-alt',
+                cards: []
+              }
+            ]
+          }
+        ));
     }
 
     render() {
         return (
             <section className={styles.component}>
-                <Hero title={this.props.title} heroImg={this.props.heroImg}/>
+                <Hero title={this.props.title} image={this.props.image}/>
                 <div className={styles.description}>
-                    {this.props.children}
+                    {ReactHtmlParser(this.props.description)}
+                </div>
+                <div className={styles.creator}>
+                    <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
                 </div>
                 <div className={styles.columns}>
-                    <Column title='title_1'/>
-                    <Column title='title_2'/>
-                    <Column title='title_3'/>
+                   {this.state.columns.map(({key, ...columnProps}) => (
+                       <Column key={key} {...columnProps} />
+                   ))}
                 </div>
             </section>
         )
