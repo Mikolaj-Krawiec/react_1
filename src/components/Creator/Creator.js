@@ -6,54 +6,62 @@ import PropTypes from 'prop-types';
 class Creator extends React.Component {
   static propTypes = {
     text: PropTypes.string,
-  }
+    action: PropTypes.func,
+  };
 
   static defaultProps = {
     text: 'Add new item',
-  }
+  };
 
   state = {
     value: '',
     visibleButtons: false,
-  }
+  };
 
-  handleChange = event => {
+  handleChange = (event) => {
     // console.log(event);
     this.setState({
       value: event.target.value,
-      visibleButtons: event.target.value.length > 0
+      visibleButtons: event.target.value.length > 0,
     });
-  }
+  };
 
   handleOK = () => {
-    if(this.state.value != ''){
+    if (this.state.value != '') {
       this.props.action(this.state.value);
       this.setState({
         value: '',
-        visibleButtons: false
+        visibleButtons: false,
       });
     }
-  }
+  };
 
   handleCancel = () => {
     this.setState({
       value: '',
-      visibleButtons: false
+      visibleButtons: false,
     });
-  }
+  };
 
   render() {
     return (
       <div className={styles.component}>
         <input
-          type='text'
+          type="text"
           placeholder={this.props.text}
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
+        <div
+          className={
+            styles.buttons +
+            (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')
+          }
+        >
           <Button onClick={this.handleOK}>OK</Button>
-          <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
+          <Button onClick={this.handleCancel} variant="danger">
+            cancel
+          </Button>
         </div>
       </div>
     );
