@@ -1,6 +1,8 @@
 @import '../../styles/settings.scss';
 
 .component {
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
   width: calc(33% - 12px);
   background: $color-light;
@@ -26,6 +28,11 @@
   color: $color-warning;
   font-size: ($base-size * 2);
   vertical-align: middle;
+}
+
+.cards {
+  flex: 1 0 0 ;
+  padding: ($base-size / 2) 0;
 }
 
 @media (max-width: 767px) {
