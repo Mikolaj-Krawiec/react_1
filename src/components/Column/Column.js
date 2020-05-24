@@ -28,13 +28,13 @@ class Column extends React.Component {
           </span>
           {title}
         </h3>
+        {cards.map( cardData => (
+          <Card key={cardData.id} {...cardData} />
+        ))}
         <Creator
           text={settings.cardCreatorText}
           action={addCard}
         />
-        {cards.map( cardData => (
-          <Card key={cardData.id} {...cardData} />
-        ))}
       </section>
     );
   }
