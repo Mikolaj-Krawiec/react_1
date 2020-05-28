@@ -30,6 +30,7 @@ class Column extends React.Component {
           </span>
           {title}
         </h3>
+        {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
         <Droppable droppableId={id}>
           {(provided) => (
             <div
@@ -45,6 +46,11 @@ class Column extends React.Component {
             </div>
           )}
         </Droppable>
+        {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+        {/* {cards.map((cardData) => (
+          <Card key={cardData.id} {...cardData} />
+        ))} */}
+        {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
         <Creator text={settings.cardCreatorText} action={addCard} />
       </section>
     );

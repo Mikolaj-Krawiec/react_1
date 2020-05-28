@@ -13,6 +13,7 @@ class Card extends React.Component {
   render() {
     const { title, id, index } = this.props;
     return (
+      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       <Draggable draggableId={id} index={index}>
         {(provided) => (
           <article
@@ -25,6 +26,13 @@ class Card extends React.Component {
           </article>
         )}
       </Draggable>
+      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      // <article
+      //   className={styles.component}>
+      //   {title}
+      // </article>
+      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      
     );
   }
 }
