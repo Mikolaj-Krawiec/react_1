@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Card.scss';
-import { Draggable } from 'react-beautiful-dnd';
+// import { Draggable } from 'react-beautiful-dnd';
 
 class Card extends React.Component {
   static propTypes = {
@@ -11,26 +11,27 @@ class Card extends React.Component {
   };
 
   render() {
-    const { title, id, index } = this.props;
+    const { title } = this.props;
+    // const { title, id, index } = this.props;
     return (
       // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-      <Draggable draggableId={id} index={index}>
-        {(provided) => (
-          <article
-            className={styles.component}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-          >
-            {title}
-          </article>
-        )}
-      </Draggable>
+      // <Draggable draggableId={id} index={index}>
+      //   {(provided) => (
+      //     <article
+      //       className={styles.component}
+      //       {...provided.draggableProps}
+      //       {...provided.dragHandleProps}
+      //       ref={provided.innerRef}
+      //     >
+      //       {title}
+      //     </article>
+      //   )}
+      // </Draggable>
       // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-      // <article
-      //   className={styles.component}>
-      //   {title}
-      // </article>
+      <article
+        className={styles.component}>
+        {title}
+      </article>
       // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
       
     );

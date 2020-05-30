@@ -1,9 +1,14 @@
 // selectors
-export const getCardsForColumn = ({ cards, searchString }, columnId) =>
+export const getCardsForColumn = ({ cards }, columnId) =>
   cards.filter(
     (card) =>
-      card.columnId == columnId && RegExp(searchString, 'i').test(card.title)
+      card.columnId == columnId
   );
+
+export const searchCards = ({ cards }, searchString ) => (
+
+  cards.filter((card) => RegExp(searchString, 'i').test(card.title))
+);
 
 // action name creator
 const reducerName = 'cards';

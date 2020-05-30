@@ -133,6 +133,12 @@ const columns = [
     title: 'Strange column',
     icon: 'question',
   },
+  {
+    id: 'column-5',
+    listId: 'list-2',
+    title: 'Strange column 2',
+    icon: 'question',
+  },
 ];
 
 const cards = [
@@ -171,6 +177,24 @@ const cards = [
     index: 1,
     columnId: 'column-3',
     title: 'Skyrim',
+  },
+  {
+    id: 'card-7',
+    index: 0,
+    columnId: 'column-4',
+    title: 'New thing',
+  },
+  {
+    id: 'card-8',
+    index: 0,
+    columnId: 'column-5',
+    title: 'Another thing',
+  },
+  {
+    id: 'card-9',
+    index: 1,
+    columnId: 'column-5',
+    title: 'Something',
   },
 ];
 
