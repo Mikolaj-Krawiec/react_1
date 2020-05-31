@@ -5,7 +5,6 @@ import Icon from '../Icon/Icon';
 import Card from '../Card/Card';
 import Creator from '../Creator/Creator';
 import { settings } from '../../data/dataStore';
-// import { Droppable } from 'react-beautiful-dnd';
 
 class Column extends React.Component {
   static propTypes = {
