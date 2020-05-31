@@ -13,11 +13,17 @@ class SearchResults extends React.Component {
     cards: PropTypes.array,
     addCard: PropTypes.func,
     id: PropTypes.string,
+    match: PropTypes.object,
+    changeSearchString: PropTypes.func,
   };
 
   static defaultProps = {
     icon: settings.defaultColumnIcon,
   };
+
+  componentDidMount(){
+    this.props.changeSearchString(this.props.match.params.id);
+  }
 
   render() {
     const { cards } = this.props;

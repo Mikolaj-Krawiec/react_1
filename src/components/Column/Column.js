@@ -22,7 +22,6 @@ class Column extends React.Component {
 
   render() {
     const { title, icon, cards, addCard } = this.props;
-    // const { title, icon, cards, addCard, id } = this.props;
     return (
       <section className={styles.component}>
         <h3 className={styles.title}>
@@ -31,27 +30,9 @@ class Column extends React.Component {
           </span>
           {title}
         </h3>
-        {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-        {/* <Droppable droppableId={id}>
-          {(provided) => (
-            <div
-              className={styles.cards}
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-            >
-              {cards.map((cardData) => (
-                <Card key={cardData.id} {...cardData} />
-              ))}
-
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable> */}
-        {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
         {cards.map((cardData) => (
           <Card key={cardData.id} {...cardData} />
         ))}
-        {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
         <Creator text={settings.cardCreatorText} action={addCard} />
       </section>
     );
